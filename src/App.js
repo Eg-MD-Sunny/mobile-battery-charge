@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+		<Mobile></Mobile>
     </div>
   );
 }
 
+function Mobile(){
+	const [charge, setCharge] = useState(100)
+	const increaseCharge = ()=>{
+		let valueIncrease = charge + 10;
+		if(valueIncrease<100 || valueIncrease===100){
+			setCharge(valueIncrease);
+		}
+	}
+	const decreaseValue = () =>{
+		let newValue = charge - 10;
+		if(newValue>0 || newValue===0){	
+			setCharge(newValue);
+		}
+	}
+	const reset = () =>{
+		let resetValue = 100;
+		setCharge(resetValue)
+	}
+	return (
+		<div>
+			<h1>Mobile Charge:<span style={{color: 'red'}}>{charge + '%'}</span></h1>
+			<button onClick={decreaseValue}>Battery Down</button>
+			<button onClick={increaseCharge}>Battery Up</button>
+			<button onClick={reset}>Full Charge</button>
+		</div>
+	)
+}
 export default App;
