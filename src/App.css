@@ -4,5 +4,12 @@
 .container{
   display: grid;
   grid-template-columns: repeat(3,1fr);
+  grid-gap: 10px;
 }
-
+.styleArea{
+  border: 1px solid #8a8a8a;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}

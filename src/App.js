@@ -44,7 +44,7 @@ function Todos(){
 	useEffect(()=>{
 		fetch('https://jsonplaceholder.typicode.com/todos')
 		.then(res=>res.json())
-		.then(data=>setTodo(data))
+		.then(data=>setTodo(data).slice(10))
 	},[])
 	return (
 		<div className="container">
@@ -58,9 +58,11 @@ function Todos(){
 
 function Showdata(props){
 	return (
-		<div>
-			<h3>UserId: {props.userid}</h3>
-			<p>Title: {props.title}</p>
+		<div className="area">
+			<div className="styleArea">
+				<h3>UserId: {props.userid}</h3>
+				<p>Title: {props.title}</p>
+			</div>
 		</div>
 	)
 }
